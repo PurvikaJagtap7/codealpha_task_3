@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Management Tool</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Project Management</h1>
+            <div class="user-info">
+                <span id="currentUser">Guest</span>
+                <button id="logoutBtn" class="btn-secondary" style="display: none;">Logout</button>
+            </div>
+        </header>
+
+        <!-- Login Section -->
+        <div id="loginSection" class="auth-section">
+            <div class="auth-box">
+                <h2>Login</h2>
+                <form id="loginForm">
+                    <input type="text" id="loginUsername" placeholder="Username" required>
+                    <input type="password" id="loginPassword" placeholder="Password" required>
+                    <button type="submit" class="btn-primary">Login</button>
+                </form>
+                <p class="auth-link">Don't have an account? <a href="#" id="showRegister">Register here</a></p>
+            </div>
+        </div>
+
+        <!-- Register Section -->
+        <div id="registerSection" class="auth-section" style="display: none;">
+            <div class="auth-box">
+                <h2>Register</h2>
+                <form id="registerForm">
+                    <input type="text" id="registerUsername" placeholder="Username" required>
+                    <input type="email" id="registerEmail" placeholder="Email" required>
+                    <input type="password" id="registerPassword" placeholder="Password" required>
+                    <input type="password" id="registerConfirmPassword" placeholder="Confirm Password" required>
+                    <button type="submit" class="btn-primary">Register</button>
+                </form>
+                <p class="auth-link">Already have an account? <a href="#" id="showLogin">Login here</a></p>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div id="mainContent" style="display: none;">
+            <!-- Projects Section -->
+            <section class="projects-section">
+                <div class="section-header">
+                    <h2>Projects</h2>
+                    <button id="addProjectBtn" class="btn-primary">+ New Project</button>
+                </div>
+                <div id="projectsList" class="projects-grid"></div>
+            </section>
+
+            <!-- Project Board -->
+            <section id="projectBoard" style="display: none;">
+                <div class="board-header">
+                    <button id="backToProjects" class="btn-secondary">← Back</button>
+                    <h2 id="projectTitle"></h2>
+                    <button id="addTaskBtn" class="btn-primary">+ Add Task</button>
+                </div>
+                <div id="tasksList" class="tasks-list"></div>
+            </section>
+        </div>
+
+        <!-- Modal for New Project -->
+        <div id="projectModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>Create New Project</h3>
+                <form id="projectForm">
+                    <input type="text" id="projectName" placeholder="Project Name" required>
+                    <textarea id="projectDesc" placeholder="Project Description"></textarea>
+                    <button type="submit" class="btn-primary">Create Project</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Modal for New Task -->
+        <div id="taskModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>Add New Task</h3>
+                <form id="taskForm">
+                    <input type="text" id="taskTitle" placeholder="Task Title" required>
+                    <textarea id="taskDesc" placeholder="Task Description"></textarea>
+                    <select id="taskStatus">
+                        <option value="todo">To Do</option>
+                        <option value="inprogress">In Progress</option>
+                        <option value="done">Done</option>
+                    </select>
+                    <input type="text" id="taskAssignee" placeholder="Assign to (username)">
+                    <button type="submit" class="btn-primary">Add Task</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Modal for Task Details -->
+        <div id="taskDetailModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div id="taskDetailContent"></div>
+                <div class="comments-section">
+                    <h4>Comments</h4>
+                    <div id="commentsList"></div>
+                    <form id="commentForm">
+                        <textarea id="commentText" placeholder="Add a comment..." required></textarea>
+                        <button type="submit" class="btn-primary">Post Comment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notifications -->
+        <div id="notifications"></div>
+
+        <footer>
+            <p>Copyright 2025 @purvika jagtap</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
